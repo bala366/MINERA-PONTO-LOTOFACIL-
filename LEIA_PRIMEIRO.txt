@@ -1,0 +1,41 @@
+MINERADOR LOTOFÁCIL — 8 MÓDULOS — APLICATIVO INDEPENDENTE
+
+IDENTIDADE ANDROID
+Nome: MINERADOR LOTOFÁCIL 8M
+applicationId: br.com.mineradorlotofacil.oito
+namespace: br.com.mineradorlotofacil.oito
+rootProject: MineradorLotofacil8Modulos
+versionCode: 1
+versionName: 1.0.0
+
+IMPORTANTE
+Este applicationId é diferente do Lotofácil 22 Módulos e também diferente do Minerador 7M.
+Portanto o Android deve instalar este APK como OUTRO aplicativo.
+
+NÃO HÁ WORKFLOW DENTRO DESTE ZIP.
+O workflow será criado manualmente no GitHub em:
+.github/workflows/main.yml
+
+ERRO CORRIGIDO
+A foto do GitHub mostrou:
+Minimum supported Gradle version is 8.9. Current version is 8.7.
+Então o workflow correto deve usar Gradle 8.9.
+
+MÓDULO 8
+Descobre a quantidade predominante de falha dentro do último resultado,
+escolhe o bloco mais forte e completa as 10 falhas com uma combinação predominante
+do espelho atual na proporção complementar. Depois gera o jogo de 15 e elimina
+qualquer candidato que já tenha feito 15 pontos.
+
+
+ATUALIZAÇÃO 1.0.1 — FILTRO DE REPETIDAS
+REGRA OBRIGATÓRIA EM TODOS OS MÓDULOS QUE GERAM JOGO:
+- aceita somente 8 repetidas;
+- ou 9 repetidas;
+- ou 10 repetidas.
+Qualquer candidato com 0..7 ou 11..15 repetidas é descartado antes de aparecer.
+
+MÓDULO 8:
+- 5 falhas retiradas do resultado = 10 repetidas;
+- 6 falhas retiradas do resultado = 9 repetidas;
+- 7 falhas retiradas do resultado = 8 repetidas.

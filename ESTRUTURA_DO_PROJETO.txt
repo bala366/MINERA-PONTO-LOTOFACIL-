@@ -1,0 +1,25 @@
+RAIZ DO ZIP
+app/
+  build.gradle.kts
+  src/main/
+    AndroidManifest.xml
+    assets/
+      aldeota_boloes.txt
+    java/br/com/mineradorlotofacil/oito/
+      CoreEngine.java
+      MainActivity.java
+    res/
+      mipmap-mdpi/ic_launcher.png
+      mipmap-hdpi/ic_launcher.png
+      mipmap-xhdpi/ic_launcher.png
+      mipmap-xxhdpi/ic_launcher.png
+      mipmap-xxxhdpi/ic_launcher.png
+      values/colors.xml
+      values/styles.xml
+build.gradle.kts
+gradle.properties
+settings.gradle.kts
+LEIA_PRIMEIRO.txt
+ESTRUTURA_DO_PROJETO.txt
+
+NÃO EXISTE .github DENTRO DO ZIP.

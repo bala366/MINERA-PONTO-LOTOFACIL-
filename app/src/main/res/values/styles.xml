@@ -1,0 +1,9 @@
+<resources>
+    <style name="Theme.MineradorLotofacil" parent="android:style/Theme.Material.Light.NoActionBar">
+        <item name="android:fontFamily">sans</item>
+        <item name="android:statusBarColor">#6A1B9A</item>
+        <item name="android:navigationBarColor">#FFFFFF</item>
+        <item name="android:colorAccent">#A45AC2</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+</resources>

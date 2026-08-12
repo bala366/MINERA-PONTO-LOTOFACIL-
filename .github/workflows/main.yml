@@ -1,0 +1,107 @@
+name: COMPILAR APK MINERADOR LOTOFACIL 8M
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  construir:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar projeto
+        uses: actions/checkout@v4
+
+      - name: Configurar Java 17
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Configurar Gradle 8.9
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: "8.9"
+
+      - name: Conferir estrutura do projeto
+        shell: bash
+        run: |
+          echo "======================================"
+          echo "MINERADOR LOTOFACIL 8 MODULOS"
+          echo "VERSAO COM FILTRO 8 / 9 / 10 REPETIDAS"
+          echo "======================================"
+
+          pwd
+          ls -la
+
+          echo ""
+          echo "=== BUILD RAIZ ==="
+          cat build.gradle.kts
+
+          echo ""
+          echo "=== BUILD DO APP ==="
+          cat app/build.gradle.kts
+
+          echo ""
+          echo "=== MANIFEST ==="
+          cat app/src/main/AndroidManifest.xml
+
+          echo ""
+          echo "=== ARQUIVOS JAVA ==="
+          find app/src/main/java -type f -print
+
+          echo ""
+          echo "=== ICONES ==="
+          find app/src/main/res -name "ic_launcher*" -print
+
+      - name: Limpar compilacao anterior
+        shell: bash
+        run: |
+          gradle --stop || true
+          rm -rf app/build
+          rm -rf .gradle
+
+      - name: Compilar APK
+        shell: bash
+        run: |
+          gradle --no-daemon :app:assembleDebug --stacktrace
+
+      - name: Procurar APK gerado
+        shell: bash
+        run: |
+          echo "======================================"
+          echo "PROCURANDO APK"
+          echo "======================================"
+
+          find app/build/outputs -type f -name "*.apk" -print
+
+      - name: Preparar APK final
+        shell: bash
+        run: |
+          mkdir -p apk-final
+
+          APK=$(find app/build/outputs/apk/debug -type f -name "*.apk" | head -1)
+
+          if [ -z "$APK" ]; then
+            echo "ERRO: APK NAO FOI ENCONTRADO"
+            exit 1
+          fi
+
+          cp "$APK" apk-final/MINERADOR-LOTOFACIL-8M-FILTRO-8-9-10.apk
+
+          echo ""
+          echo "======================================"
+          echo "APK FINAL"
+          echo "======================================"
+
+          ls -lh apk-final/
+
+      - name: Salvar APK nos Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: MINERADOR-LOTOFACIL-8M-FILTRO-8-9-10
+          path: apk-final/MINERADOR-LOTOFACIL-8M-FILTRO-8-9-10.apk
+          if-no-files-found: error
+          retention-days: 30
